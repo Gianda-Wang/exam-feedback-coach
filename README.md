@@ -1,26 +1,67 @@
-# Codex Skills
+# Exam Feedback Coach｜试卷分析与个性化反馈
 
-这里收录可复用的 Codex Skill。目前公开的是一项试卷反馈流程；以后会逐项审核并加入更多 Skill。
+一个给教师使用的 Codex Skill：把试卷、参考答案和学生小题得分整理成**可核对的试卷分析、整班学情、教师逐人分析和家长版建议**。适用于单次考试，也支持在试卷可比时追踪几次考试中的能力变化。
 
-## Exam Feedback Coach
+这个 Skill 的重点是先核对数据，再解释表现，最后把建议落到后续教学和学生能独立完成的练习上。它不会仅凭一个失分点断定学生“粗心”或“不努力”；没有原答卷时，会把可能原因标为待核查。
 
-[查看 Skill](skills/exam-feedback-coach/SKILL.md) · [下载压缩包](https://github.com/Gianda-Wang/codex-skills/releases)
+## 适合什么任务
 
-把试卷、参考答案和小题得分整理成可核对的教学反馈。它会分阶段询问老师希望达到的成果程度、实际可用的学习材料和特殊要求，再决定分析深度与输出形式。默认可以生成四类内容：
+- 老师有每个学生的小题得分，希望知道班级哪类题、哪项能力更值得补充教学。
+- 希望为不同表现的学生写出有证据、少套话的评价和学习建议。
+- 需要同时准备教师内部使用的直接分析，以及适合家长阅读的反馈。
+- 有几次考试的数据，想看同类能力是否有变化，并据此调整下一次建议。
 
-1. 试卷与逐题分析
-2. 整班学情和后续教学重点
-3. 教师用的逐人分析与重点跟进依据
-4. 面向家长的逐人建议
+英语试卷是这个 Skill 的最初使用场景，但题型、分值、年级和科目都需要根据老师提供的材料重新确认，不预设固定试卷结构。
 
-有多次可比考试时，也可以分析同一能力点的变化。Skill 要求核对学生与分数的对应关系，区分已观察到的得分事实、由题目表现支持的推测，以及需要答卷或教师观察才能确认的错因。
+## 需要提供什么
 
-### 使用
+| 材料 | 作用 |
+| --- | --- |
+| 本次考试的小题得分表 | 核对学生、总分、题号、满分和各部分得分；这是逐人分析的基础。 |
+| 试卷和参考答案 | 确认每题考查什么、解题依据是什么，使建议不止停留在“哪题错得多”。 |
+| 评分标准、听力文本或音频 | 有相应题型时用于补全题目与评分信息。 |
+| 学生原答卷、典型错答或教师观察 | 用于进一步确认具体错因；没有这些材料时，不能把推测写成事实。 |
+| 之前的考试数据（可选） | 比较可比的能力点；先检查分值、题型、难度和考试范围是否相近。 |
 
-将 `skills/exam-feedback-coach` 整个文件夹放入本机的 `~/.codex/skills/`，然后在 Codex 中使用 `$exam-feedback-coach`，提供本次考试材料和希望得到的成果。也可以先只提供现有材料，让 Skill 帮你判断还缺什么。
+只有部分材料也可以先开始。Skill 会说明哪些结论已有依据，哪些还需要补充材料。
 
-本仓库只包含通用 Skill 指令，不包含学生姓名、成绩、试卷或课堂资料。生成的教师逐人分析属于教师资料；向家长发布时应单独核对可见范围。
+## 默认产出
+
+老师可以增减页面。默认是一份四页的 Excel 工作簿：
+
+1. **试卷与逐题分析**：题号、题型、分值、班级得分率、考查内容和讲评切入点。
+2. **整班学情**：分题型表现、共性问题、下一阶段教学重点及验证方式。
+3. **教师逐人分析**：每名学生的关键证据、本次优先短板、课堂干预和下次验证；需要重点跟进的学生按老师认可的明确规则标记。
+4. **家长版逐人建议**：本次表现、可迁移的同类题方法，以及课上、课下或周末能落实的练习。
+
+教师可以决定成果要达到的程度、评价语气、建议包含哪些环节、学生实际有哪些学习材料、是否写练习频率与时长，以及屏幕阅读、打印或平台导入的版式要求。Skill 会在开始、试卷映射后、逐人样稿阶段和最终导出前分阶段确认关键设置。
+
+## 工作方式
+
+1. **先确认任务**：考试身份、班级、科目、材料、读者和希望得到的成果。
+2. **核对数据**：逐人检查总分与小题分之和、题号与满分、缺失或重复记录；有疑点时先标出，不把错位数据写成评价。
+3. **分析试卷与学情**：把“实际得分事实”“由多题表现支持的判断”“尚需答卷验证的原因”分开。
+4. **先看样稿，再写全班**：挑不同分数段和失分结构的学生，确认深度与表达方式后再批量生成。
+5. **发布前复核**：抽查具体学生，并全面检查姓名与分数对应、建议是否套话、原始成绩是否改动、各页是否适合目标读者。
+
+它给出的是教学判断与下一步行动的依据，不能替代老师看学生原答卷、课堂表现和实际作业。
+
+## 安装与使用
+
+下载 [exam-feedback-coach 压缩包](https://github.com/Gianda-Wang/exam-feedback-coach/releases)，解压后将整个 `exam-feedback-coach` 文件夹放入 `~/.codex/skills/`。也可以直接克隆本仓库：
+
+```bash
+git clone https://github.com/Gianda-Wang/exam-feedback-coach.git ~/.codex/skills/exam-feedback-coach
+```
+
+然后在 Codex 中输入 `$exam-feedback-coach`，并提供本次材料。例如：
+
+> 请用 exam-feedback-coach 分析这次考试。我有试卷、答案和两个班的小题得分。先核对数据，再和我确认希望输出的页面与建议深度；先给几名不同情况的学生看样稿，确认后再做全班表格。
+
+## 数据与发布边界
+
+本仓库只包含通用 Skill 指令和说明，**不包含学生姓名、成绩、试卷或课堂资料**。生成的教师逐人分析属于教师内部材料；通过班级平台发送时，应单独导出家长版，并核对每位家长的可见范围。
 
 ---
 
-**English summary:** Exam Feedback Coach is a configurable Codex skill for evidence-based exam and item-score analysis. It helps teachers produce exam, class, teacher-only student, and family-facing feedback, with explicit data checks and cautious interpretation of error causes.
+**English summary:** Exam Feedback Coach is a configurable Codex skill for evidence-based exam and item-score analysis. It checks score integrity, maps items to skills, and helps teachers produce an exam analysis, class teaching priorities, teacher-only student feedback, and family-facing recommendations. It supports cautious comparison across exams and separates observed scores from unverified explanations of errors.

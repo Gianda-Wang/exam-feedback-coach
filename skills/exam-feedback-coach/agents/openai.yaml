@@ -1,0 +1,3 @@
+interface:
+  display_name: "Exam Feedback Coach"
+  short_description: "Analyze item scores and create checked class and student feedback"
